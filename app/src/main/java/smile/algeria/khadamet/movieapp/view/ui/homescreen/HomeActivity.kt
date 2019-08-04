@@ -10,10 +10,11 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import kotlinx.android.synthetic.main.activity_main.*
 import smile.algeria.khadamet.movieapp.R
 import smile.algeria.khadamet.movieapp.ViewState
+import smile.algeria.khadamet.movieapp.view.base.BaseActivity
 import smile.algeria.khadamet.movieapp.view.uimodel.MovieUiModel
 import javax.inject.Inject
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity() {
 
     @Inject
     lateinit var homeViewModel: HomeViewModel
@@ -38,6 +39,10 @@ class HomeActivity : AppCompatActivity() {
     private fun configViewModel() {
         homeViewModel = ViewModelProviders.of(this, viewModelFactory).get(HomeViewModel::class.java)
     }
+
+    override val screenName: String
+        get() = this@HomeActivity.localClassName
+
 
     private fun configUI() {
 
